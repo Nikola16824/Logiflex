@@ -1,0 +1,13 @@
+{
+  "name": "drayage-api",
+  "version": "1.0.0",
+  "description": "My API project",
+  "type": "module",
+  "scripts": {
+    "start": "node createContainer.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  }
+}
+

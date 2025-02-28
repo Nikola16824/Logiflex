@@ -1,0 +1,34 @@
+.center-align {
+    text-align: center;
+}
+
+/* Style for both headers and cells */
+th.sortable, 
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style for dash cells to be centered */
+td.dash-cell {
+    text-align: center !important;  /* Force center alignment */
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* Hide Previous button by default */
+#prevPage {
+    display: none;
+}
+
+/* Make sure table headers for these columns are also centered */
+th.sortable {
+    text-align: center;
+}
+
+/* Center align specific columns */
+.center-column {
+    text-align: center !important;
+    padding: 12px;
+    font-size: 14px;
+} 
