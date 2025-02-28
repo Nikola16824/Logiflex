@@ -1,3 +1,29 @@
+// Backend controller for fetching containers
+const fetchContainers = async (req, res) => {
+    try {
+        // Using Supabase's built-in join functionality
+        const response = await fetch("https://mrfrpiwrrcfdigedzjln.supabase.co/rest/v1/containers?select=*,order_status(*)", {
+            headers: {
+                "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yZnJwaXdycmNmZGlnZWR6amxuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzM4OTAzMCwiZXhwIjoyMDQ4OTY1MDMwfQ.aqWuKuL1W_PfRKeuqN5QrY-eoQXAO7xUm5Z3O_TYE9Y",
+                "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yZnJwaXdycmNmZGlnZWR6amxuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczMzM4OTAzMCwiZXhwIjoyMDQ4OTY1MDMwfQ.aqWuKuL1W_PfRKeuqN5QrY-eoQXAO7xUm5Z3O_TYE9Y`,
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch containers");
+        }
+
+        const containers = await response.json();
+        res.json(containers);
+    } catch (error) {
+        console.error("Error fetching containers:", error);
+        res.status(500).json({ error: "Failed to fetch containers" });
+    }
+};
+
+module.exports = fetchContainers;
+
 // Fetch container data from the API
 async function fetchContainers() {
     try {
